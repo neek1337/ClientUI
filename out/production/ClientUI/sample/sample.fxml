@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+      fx:controller="sample.Controller1">
+    <children>
+        <Button fx:id="connectButton" layoutX="489.0" layoutY="78.0" mnemonicParsing="false" onAction="#connect"
+                text="Подключиться"/>
+        <TextField fx:id="ipField" layoutX="40.0" layoutY="78.0" prefHeight="25.0" prefWidth="126.0" text="localhost"/>
+        <TextField fx:id="portField" layoutX="222.0" layoutY="78.0" prefHeight="25.0" prefWidth="88.0" text="4444"/>
+        <Label layoutX="100.0048828125" layoutY="44.5" text="ip"/>
+        <Label layoutX="255.0" layoutY="45.0" text="port"/>
+        <TextArea fx:id="text" layoutX="37.0" layoutY="148.0" prefHeight="200.0" prefWidth="325.0"/>
+        <Button id="send_button" fx:id="sendButton" layoutX="442.0" layoutY="286.0" mnemonicParsing="false"
+                onAction="#send" text="Отправить"/>
+        <TextField fx:id="nameField" layoutX="362.0" layoutY="78.0" prefHeight="25.0" prefWidth="88.0" text="testName"/>
+        <Label layoutX="371.0" layoutY="45.0" text="nickname"/>
+
+    </children>
+</Pane>

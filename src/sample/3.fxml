@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0"
+      prefWidth="422.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller3">
+    <children>
+        <Button fx:id="regButton" layoutX="285.0" layoutY="217.0" mnemonicParsing="false" onAction="#registration" text="Зарегестрироваться" />
+
+        <Button fx:id="backButton" layoutX="211.0" layoutY="217.0" mnemonicParsing="false" onAction="#back" text="Назад" />
+        <Label layoutX="48.0" layoutY="21.0" text="IP-адрес сервера:" /><Label layoutX="227.0" layoutY="21.0" text="Порт сервера:" />
+        <TextField fx:id="portField" layoutX="222.0" layoutY="53.0" prefHeight="25.0" prefWidth="88.0" text="4444" />
+        <Label layoutX="36.0" layoutY="108.0" text="Имя пользователя:" /><Label layoutX="36.0" layoutY="149.0" text="Пароль:" />
+        <TextField fx:id="nameField" layoutX="148.0" layoutY="104.0" prefHeight="25.0" prefWidth="126.0" />
+        <TextField fx:id="ipField" layoutX="43.0" layoutY="53.0" prefHeight="25.0" prefWidth="126.0" text="localhost" />
+        <Label layoutX="36.0" layoutY="183.0" text="Повторите пароль:" />
+        <PasswordField fx:id="pswdField1" layoutX="106.0" layoutY="145.0" />
+        <PasswordField fx:id="pswdField2" layoutX="153.0" layoutY="179.0" />
+
+    </children>
+</Pane>
