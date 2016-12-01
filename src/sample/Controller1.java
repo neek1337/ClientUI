@@ -47,6 +47,9 @@ public class Controller1 extends Controller {
     @FXML
     public void initialize() {
         tableview.setPlaceholder(new Label(""));
+        for (String s : keys.keySet()) {
+            addRow(s, keys.get(s).getXstr());
+        }
         updateUserListField();
         listener = new Listener();
         listener.controller = this;
@@ -56,12 +59,21 @@ public class Controller1 extends Controller {
 
 
     public void addRow(ActionEvent actionEvent) {
-        BBs generator = new BBs(String.valueOf(addingPathField.getText().hashCode()));
+        BBs generator = new BBs(addingPathField.getText());
         keys.put(addingNameField.getText(), generator);
         tableview.setEditable(true);
         nameColumn.setCellValueFactory(new PropertyValueFactory<Row, String>("name"));
         pathColumn.setCellValueFactory(new PropertyValueFactory<Row, String>("path"));
         data.add(new Row(addingNameField.getText(), addingPathField.getText()));
+        tableview.setItems(data);
+
+    }
+
+    public void addRow(String key, String value) {
+        tableview.setEditable(true);
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Row, String>("name"));
+        pathColumn.setCellValueFactory(new PropertyValueFactory<Row, String>("path"));
+        data.add(new Row(key, value));
         tableview.setItems(data);
 
     }

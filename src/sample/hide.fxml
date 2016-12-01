@@ -4,16 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HiddenController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HiddenController">
     <children>
-        <TextArea fx:id="text" layoutX="116.0" layoutY="244.0" prefHeight="34.0" prefWidth="260.0" />
-        <Button id="send_button" fx:id="sendButton" layoutX="402.0" layoutY="251.0" mnemonicParsing="false" onAction="#send" text="Отправить" />
-        <Label layoutX="29.0" layoutY="21.0" text="Пользователи в сети:" />
-        <TextField fx:id="usersListField" layoutX="190.0" layoutY="17.0" prefHeight="25.0" prefWidth="383.0" />
-        <Label layoutX="146.0" layoutY="51.0" text="Полученное сообщение :" />
-        <Label layoutX="19.0" layoutY="255.0" prefHeight="17.0" prefWidth="116.0" text="Сообщение:" />
-        <TextArea fx:id="inputField" layoutX="63.0" layoutY="68.0" prefHeight="145.0" prefWidth="343.0" />
-      <Button fx:id="hideButton" layoutX="494.0" layoutY="187.0" mnemonicParsing="false" onAction="#hide" text="Назад" />
+        <TextArea fx:id="text" layoutX="168.0" layoutY="217.0" prefHeight="80.0" prefWidth="260.0" />
+        <Button id="send_button" fx:id="sendButton" layoutX="449.0" layoutY="245.0" mnemonicParsing="false" onAction="#send" text="Отправить" />
+        <Label layoutX="11.0" layoutY="21.0" text="Пользователи в сети:" />
+        <TextField fx:id="usersListField" layoutX="138.0" layoutY="17.0" prefHeight="25.0" prefWidth="300.0" />
+        <Label layoutX="11.0" layoutY="104.0" prefHeight="25.0" prefWidth="144.0" text="Полученные сообщения :" />
+        <Label layoutX="80.0" layoutY="249.0" prefHeight="17.0" prefWidth="74.0" text="Сообщение:" />
+        <TextArea fx:id="inputField" layoutX="158.0" layoutY="56.0" prefHeight="145.0" prefWidth="280.0" />
+      <Button fx:id="hideButton" layoutX="449.0" layoutY="17.0" mnemonicParsing="false" onAction="#hide" text="Добавить ключ" />
 
     </children>
 </Pane>

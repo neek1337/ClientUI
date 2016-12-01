@@ -16,7 +16,7 @@
         <Button fx:id="addButton" layoutX="396.0" layoutY="94.0" mnemonicParsing="false" onAction="#addRow" text="Добавить" />
         <Button fx:id="deleteButton" layoutX="384.0" layoutY="144.0" mnemonicParsing="false" onAction="#deleteRow" text="Удалить запись" />
         <Label layoutX="29.0" layoutY="21.0" text="Пользователи в сети:" />
-        <TextField fx:id="usersListField" layoutX="190.0" layoutY="17.0" prefHeight="25.0" prefWidth="383.0" />
+        <TextField fx:id="usersListField" layoutX="190.0" layoutY="17.0" prefHeight="25.0" prefWidth="280.0" />
         <Label layoutX="27.0" layoutY="65.0" text="Имя пользователя:" />
         <Label layoutX="222.0" layoutY="65.0" text="Ключ:" />
       <Button fx:id="hideButton" layoutX="387.0" layoutY="240.0" mnemonicParsing="false" onAction="#hide" text="Далее" />

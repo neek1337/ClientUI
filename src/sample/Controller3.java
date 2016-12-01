@@ -58,6 +58,8 @@ public class Controller3 {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");
             alert.setHeaderText(null);
+            alert.setResizable(true);
+            alert.getDialogPane().setPrefSize(300, 100);
             alert.setContentText("Введеные пароли не совпадают.");
             alert.showAndWait();
             return;
@@ -74,6 +76,8 @@ public class Controller3 {
 
                 alert.setTitle("");
                 alert.setHeaderText(null);
+                alert.setResizable(true);
+                alert.getDialogPane().setPrefSize(300, 100);
                 alert.setContentText("Регистрация прошла успешно.");
                 alert.showAndWait();
                 break;
@@ -81,6 +85,8 @@ public class Controller3 {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("");
                 alert.setHeaderText(null);
+                alert.setResizable(true);
+                alert.getDialogPane().setPrefSize(300, 100);
                 alert.setContentText("При регистрации произошла ошибка.");
                 alert.showAndWait();
                 return;

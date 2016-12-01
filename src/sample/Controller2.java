@@ -83,6 +83,8 @@ public class Controller2 {
 
                 alert.setTitle("");
                 alert.setHeaderText(null);
+                alert.setResizable(true);
+                alert.getDialogPane().setPrefSize(300, 100);
                 alert.setContentText("Соединение с сервером установлено.");
                 alert.showAndWait();
                 break;
@@ -92,6 +94,8 @@ public class Controller2 {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("");
                 alert.setHeaderText(null);
+                alert.setResizable(true);
+                alert.getDialogPane().setPrefSize(300, 100);
                 alert.setContentText("Пользователь с таким именем уже в сети.");
                 alert.showAndWait();
                 return;
@@ -100,6 +104,8 @@ public class Controller2 {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("");
                 alert.setHeaderText(null);
+                alert.setResizable(true);
+                alert.getDialogPane().setPrefSize(300, 100);
                 alert.setContentText("В доступе отказано.");
                 alert.showAndWait();
                 return;
@@ -112,7 +118,7 @@ public class Controller2 {
         window = FXMLLoader.load(getClass().getResource("1.fxml"));
 
         Scene newScene;
-        newScene = new Scene(window, 600, 400);
+        newScene = new Scene(window, 500, 300);
 
         Stage mainWindow;
         mainWindow = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

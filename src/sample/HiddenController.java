@@ -52,7 +52,7 @@ public class HiddenController extends Controller {
         }
         outputByte = strToByteArr(outputStr);
         while (outputStr != null && outputByte != null && startIndex == -1) {
-            out.println("?" + outputStr.length() * 15);
+            out.println("?" + outputStr.length() * 16);
             Thread.sleep(1000);
         }
     }
@@ -85,7 +85,7 @@ public class HiddenController extends Controller {
         for (char c : s.toCharArray()) {
             System.out.println((int) c);
             String local = Integer.toBinaryString(c);
-            for (int i = 0; i < 15 - local.length(); i++) {
+            for (int i = 0; i < 16 - local.length(); i++) {
                 result.add((byte) 0);
             }
             for (char c1 : local.toCharArray()) {
