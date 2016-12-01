@@ -55,6 +55,7 @@ public class HiddenController extends Controller {
             out.println("?" + outputStr.length() * 16);
             Thread.sleep(1000);
         }
+        text.setText("");
     }
 
 /*    public ArrayList<Byte> strToByteArr(String s) {
@@ -113,7 +114,7 @@ public class HiddenController extends Controller {
 
         Stage mainWindow;
         mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
+        mainWindow.setTitle(currentName);
         mainWindow.setScene(newScene);
     }
 }

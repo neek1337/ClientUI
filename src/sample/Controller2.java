@@ -119,10 +119,10 @@ public class Controller2 {
 
         Scene newScene;
         newScene = new Scene(window, 500, 300);
-
+        currentName = name;
         Stage mainWindow;
         mainWindow = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
+        mainWindow.setTitle(currentName);
         mainWindow.setScene(newScene);
     }
 

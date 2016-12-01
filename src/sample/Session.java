@@ -12,5 +12,6 @@ public class Session {
     public static PrintWriter out;
     public static ArrayList<String> users = new ArrayList<>();
     public static int startIndex = -1;
+    public static String currentName;
 
 }

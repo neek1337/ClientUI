@@ -95,7 +95,7 @@ public class Controller1 extends Controller {
 
         Stage mainWindow;
         mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
+        mainWindow.setTitle(currentName);
         mainWindow.setScene(newScene);
     }
 }
