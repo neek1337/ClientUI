@@ -60,7 +60,7 @@ public class Controller3 {
             alert.setHeaderText(null);
             alert.setResizable(true);
             alert.getDialogPane().setPrefSize(300, 100);
-            alert.setContentText("Введеные пароли не совпадают.");
+            alert.setContentText("Введенные пароли не совпадают.");
             alert.showAndWait();
             return;
         }
