@@ -76,6 +76,7 @@ public class Controller2 {
         out.println(stribog.getHash(password));
         String responseLine;
 
+        boolean flag = false;
         while ((responseLine = in.readLine()) != null) {
 
             if (responseLine.equals("!")) {
@@ -87,19 +88,10 @@ public class Controller2 {
                 alert.getDialogPane().setPrefSize(300, 100);
                 alert.setContentText("Соединение с сервером установлено.");
                 alert.showAndWait();
+                flag = true;
                 break;
             }
 
-            if (responseLine.startsWith("Ошибка")) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("");
-                alert.setHeaderText(null);
-                alert.setResizable(true);
-                alert.getDialogPane().setPrefSize(300, 100);
-                alert.setContentText("Пользователь с таким именем уже в сети.");
-                alert.showAndWait();
-                return;
-            }
             if (responseLine.startsWith("В доступе отказано")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("");
@@ -112,7 +104,16 @@ public class Controller2 {
             }
             users.add(responseLine);
         }
-
+        if (!flag) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("");
+            alert.setHeaderText(null);
+            alert.setResizable(true);
+            alert.getDialogPane().setPrefSize(300, 100);
+            alert.setContentText("В доступе отказано.");
+            alert.showAndWait();
+            return;
+        }
 
         Parent window;
         window = FXMLLoader.load(getClass().getResource("1.fxml"));
