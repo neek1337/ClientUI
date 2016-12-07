@@ -9,10 +9,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
+import static sample.AES.encrypt;
 import static sample.Session.*;
 
 /**
@@ -29,6 +43,7 @@ public class HiddenController extends Controller {
 
     public Button hideButton;
 
+
     @FXML
     public void initialize() {
         updateUserListField();
@@ -37,11 +52,8 @@ public class HiddenController extends Controller {
     }
 
 
-    public void send(ActionEvent actionEvent) throws InterruptedException {
-        outputStr = text.getText().toLowerCase() + "|";
-        outputStr = outputStr.replaceAll("ё", "е");
-        outputStr = outputStr.replaceAll("ъ", "ь");
-
+    public void send(ActionEvent actionEvent) throws Exception {
+        outputStr = text.getText().toLowerCase();
         if (outputStr.contains("\n")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");
@@ -50,6 +62,10 @@ public class HiddenController extends Controller {
             alert.showAndWait();
             return;
         }
+        if (cryptEnabledBool) {
+            outputStr = encrypt(outputStr, cryptKeySession);
+        }
+        outputStr += "|";
         outputByte = strToByteArr(outputStr);
         while (outputStr != null && outputByte != null && startIndex == -1) {
             out.println("?" + outputStr.length() * 16);
@@ -57,6 +73,9 @@ public class HiddenController extends Controller {
         }
         text.setText("");
     }
+
+
+
 
 /*    public ArrayList<Byte> strToByteArr(String s) {
         ArrayList<Byte> result = new ArrayList<>();

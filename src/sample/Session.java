@@ -2,6 +2,7 @@ package sample;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.security.Key;
 import java.util.ArrayList;
 
 /**
@@ -13,5 +14,7 @@ public class Session {
     public static ArrayList<String> users = new ArrayList<>();
     public static int startIndex = -1;
     public static String currentName;
+    public static boolean cryptEnabledBool = false;
+    public static Key cryptKeySession;
 
 }

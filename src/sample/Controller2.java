@@ -1,14 +1,12 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import stribog.Stribog;
 
@@ -17,8 +15,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.SocketException;
 
+import static sample.AES.generateKey;
 import static sample.Session.*;
 
 /**
@@ -31,6 +29,9 @@ public class Controller2 {
     public TextField portField;
     public TextField nameField;
     public TextField ipField;
+    public CheckBox cryptEnabled;
+    public TextField cryptKey;
+    public Label cryptKeyLabel;
 
     public void registration(ActionEvent event) throws IOException {
         Parent window;
@@ -43,6 +44,19 @@ public class Controller2 {
         mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         mainWindow.setScene(newScene);
+
+    }
+
+    @FXML
+    public void initialize() {
+        cryptEnabled.setSelected(cryptEnabledBool);
+        if (cryptEnabled.isSelected()) {
+            cryptKey.setVisible(true);
+            cryptKeyLabel.setVisible(true);
+        } else {
+            cryptKey.setVisible(false);
+            cryptKeyLabel.setVisible(false);
+        }
 
     }
 
@@ -92,16 +106,6 @@ public class Controller2 {
                 break;
             }
 
-            if (responseLine.startsWith("В доступе отказано")) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("");
-                alert.setHeaderText(null);
-                alert.setResizable(true);
-                alert.getDialogPane().setPrefSize(300, 100);
-                alert.setContentText("В доступе отказано.");
-                alert.showAndWait();
-                return;
-            }
             users.add(responseLine);
         }
         if (!flag) {
@@ -113,6 +117,9 @@ public class Controller2 {
             alert.setContentText("В доступе отказано.");
             alert.showAndWait();
             return;
+        }
+        if (cryptEnabledBool) {
+            cryptKeySession = generateKey(cryptKey.getText());
         }
 
         Parent window;
@@ -127,5 +134,16 @@ public class Controller2 {
         mainWindow.setScene(newScene);
     }
 
+    public void changeCryptEnabled(ActionEvent actionEvent) {
+        if (cryptEnabled.isSelected()) {
+            cryptKey.setVisible(true);
+            cryptKeyLabel.setVisible(true);
+            cryptEnabledBool = true;
+        } else {
+            cryptKey.setVisible(false);
+            cryptKeyLabel.setVisible(false);
+            cryptEnabledBool = false;
+        }
+    }
 }
 

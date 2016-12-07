@@ -1,12 +1,27 @@
 package sample;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
+import static sample.AES.decrypt;
 import static sample.Controller1.*;
 import static sample.Session.*;
 
 public class Listener implements Runnable {
     Controller controller;
+    private static String encryptedValue = "";
+
 
     public void run() {
         String responseLine;
@@ -27,7 +42,16 @@ public class Listener implements Runnable {
                     if (responseLine.length() == 1) {
                         responseLine = in.readLine();
                     }
-                    controller.updateInputField(responseLine.charAt(1));
+                    if (cryptEnabledBool) {
+                        if (responseLine.charAt(1) != '|') {
+                            encryptedValue += responseLine.charAt(1);
+                        } else {
+                            controller.updateInputField(decrypt(encryptedValue, cryptKeySession));
+                            encryptedValue = "";
+                        }
+                    } else {
+                        controller.updateInputField(responseLine.charAt(1));
+                    }
                 }
                 if (responseLine.startsWith("*")) {
                     int result = 0;
@@ -57,6 +81,10 @@ public class Listener implements Runnable {
             System.out.println("Ошибка соединения с сервером. Для выхода нажмите Enter" +
                     "");
             Controller1.stoped = true;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+
 }

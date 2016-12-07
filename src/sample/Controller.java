@@ -44,4 +44,12 @@ public class Controller {
             inputField.setText(inputString.toString());
         });
     }
+
+    public void updateInputField(String c) {
+        inputString.append(c);
+        inputString.append("\n");
+        Platform.runLater(() -> {
+            inputField.setText(inputString.toString());
+        });
+    }
 }
